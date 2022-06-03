@@ -1,0 +1,84 @@
+<app-dashboard-header>
+    <div class="container mt-3">
+        <div class="grey-bg container-fluid">
+            <section id="minimal-statistics">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-uppercase"><b>Add Leave Request</b></h4>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <form [formGroup]="leaverequest" class="example-form" (submit)="onSubmit()">
+                        <div class="row">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Employee Name</mat-label>
+                                <input matInput placeholder="Employee Name" disabled [value]="username">
+
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Leave Subject</mat-label>
+                                <input matInput placeholder="Leave Subject" formControlName="leavesubjects" required>
+                                <mat-error *ngIf="leavesubjects && leavesubjects.invalid">Leave Subject is required
+                                </mat-error>
+
+                            </mat-form-field>
+                            <span class="text-danger" *ngIf="errors.leavesubject && errors.leavesubject !==''">{{
+                                errors.leavesubject }}</span>
+                        </div>
+                        <div class="row">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Reason for Leave</mat-label>
+                                <textarea matInput placeholder="Reason for leave" formControlName="reasonforleaves"
+                                    required></textarea>
+                                <mat-error *ngIf="(reasonforleaves && reasonforleaves.invalid)">Reason for Leave Is
+                                    Required</mat-error>
+
+                            </mat-form-field>
+                            <span class="text-danger" *ngIf="errors.reasonforleave && errors.reasonforleave !== ''">{{
+                                errors.reasonforleave
+                                }}</span>
+
+                        </div>
+                        <div class="row">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Leave Start Date</mat-label>
+                                <input matInput type="date" placeholder="Leave Date" formControlName="leavestartdates"
+                                    required>
+                                <mat-error *ngIf="(leavestartdates && leavestartdates.invalid)">Leave Start Date Is
+                                    Required</mat-error>
+
+                            </mat-form-field>
+                            <span class="text-danger" *ngIf="errors.leavestartdate && errors.leavestartdate !== ''">{{
+                                errors.leavestartdate
+                                }}</span>
+
+                        </div>
+                        <div class="row">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Leave End Date</mat-label>
+                                <input matInput type="date" placeholder="Leave End Date" formControlName="leaveenddates"
+                                    required>
+                                <mat-error *ngIf="leaveenddates && leaveenddates.invalid">Leave Subject Is Required
+                                </mat-error>
+
+                            </mat-form-field>
+                            <span class="text-danger" *ngIf="errors.leaveenddate && errors.leaveenddate !== ''">{{
+                                errors.leaveenddate
+                                }}</span>
+                        </div>
+
+                        <div class="row">
+                            <button type="submit" class="btn btn-outline-danger">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+</app-dashboard-header>

@@ -1,0 +1,25 @@
+<app-dashboard-header>
+    <div class="container mt-3">
+        <div class="grey-bg container-fluid">
+            <section id="minimal-statistics">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-uppercase"><b>View Specific Leave</b></h4>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='card' *ngIf="display">
+                        <h4 class='card-header bg-secondary text-white'>View Leave</h4>
+                        <div class='card-body'>
+                            <p><b>Subject :</b>{{ userleave.Subject }}</p>
+                            <p><b>Reason For Leave :</b>{{ userleave.Reason }} </p>
+                            <p><b>Leave Start Date :</b>{{ userleave.StartDate }}</p>
+                            <p><b>Leave End Date :</b>{{ userleave.EndDate }}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</app-dashboard-header>

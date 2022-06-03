@@ -1,0 +1,91 @@
+<app-dashboard-header>
+    <div class="container mt-3">
+        <div class="grey-bg container-fluid">
+            <section id="minimal-statistics">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-uppercase"><b>Dashboard</b></h4>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body" routerLink="/dashboard/viewleave">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="danger">{{ allleave }}</h3>
+                                            <span *ngIf="roleid==='1'">Employee Total Leaves</span>
+                                            <span *ngIf="roleid==='2'"> Total Leaves</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="ion ion-pricetag danger font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body" routerLink="/dashboard/viewapproovedleave">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="success">{{ approoved }}</h3>
+                                            <span *ngIf="roleid==='1'">Employee Approoved Leaves</span>
+                                            <span *ngIf="roleid==='2'">Approoved Leaves</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="fa fa-check success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body" routerLink="/dashboard/viewrejectedleave">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="warning">{{ rejected }}</h3>
+                                            <span *ngIf="roleid==='1'">Employee Rejected Leaves</span>
+                                            <span *ngIf="roleid==='2'">Rejected Leaves</span>
+
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="ion ion-close warning font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body" routerLink="/dashboard/viewleave">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="primary">{{ pending }}</h3>
+                                            <span *ngIf="roleid==='1'">Employee Pending Leaves</span>
+                                            <span *ngIf="roleid==='2'">Pending Leaves</span>
+
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="ion ion-clipboard primary font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</app-dashboard-header>

@@ -1,0 +1,55 @@
+<app-dashboard-header>
+    <div class="container mt-3">
+        <div class="grey-bg container-fluid">
+            <section id="minimal-statistics">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-uppercase"><b>View All Leave</b></h4>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <ng-container *ngIf="displayTable">
+
+                        <table datatable class="row-border hover table-responsive" style="display: inline-table;">
+                            <thead>
+                                <tr>
+                                    <th>Leave ID</th>
+                                    <th *ngIf="roleid === '1'">Employee ID</th>
+                                    <th>Subject</th>
+                                    <th>Reason For Leave</th>
+                                    <th>Leave Start Date</th>
+                                    <th>Leave End Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let leave of leaves;index as i;">
+                                    <td>{{ leave.id }}</td>
+                                    <td *ngIf="roleid === '1'">{{ leave.EmployeeId }}</td>
+                                    <td>{{ leave.Subject }}</td>
+                                    <td>{{ leave.Reason }}</td>
+                                    <td>{{ leave.StartDate | date:"dd-MM-YYYY"}}</td>
+                                    <td>{{ leave.EndDate | date:"dd-MM-YYYY"}}</td>
+                                    <td style="display: flex;">
+                                        <button class="btn btn-success ms-2"
+                                            routerLink="/dashboard/show/{{leave.id}}"><i
+                                                class="fa fa-eye "></i></button>
+                                        <button class="btn btn-primary ms-2" (click)="EditLeave(leave.id)"><i
+                                                class="fa fa-edit "></i></button>
+                                        <ng-container *ngIf="roleid === '2'">
+                                            <button class="btn btn-danger ms-2" (click)="DeleteLeave(leave.id)"><i
+                                                    class="fa fa-trash-alt "></i></button>
+                                        </ng-container>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ng-container>
+                </div>
+            </section>
+        </div>
+    </div>
+</app-dashboard-header>

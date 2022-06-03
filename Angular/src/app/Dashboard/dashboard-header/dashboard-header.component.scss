@@ -1,0 +1,68 @@
+.side-navbar {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #100901;
+    transition: 0.5s;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.navbar-header:hover {
+    background-color: #100901;
+}
+
+.links {
+    color: #100901;
+}
+
+.top-navbar {
+    padding: 0px;
+    background: #ababab !important;
+    margin: -4px;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #3232b2;
+}
+
+.links:hover {
+    background-color: #ababab !important;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.active-nav {
+    margin-left: 0;
+}
+
+.active {
+    background-color: #3232b2;
+}
+
+/* for main section */
+.active-cont {
+    margin-left: 180px;
+}
+
+#menu-btn {
+    background-color: #100901;
+    color: #fff;
+    margin-left: -62px;
+}
+
+.my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+}

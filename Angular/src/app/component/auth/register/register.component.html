@@ -1,61 +1,78 @@
-<div class="container mt-5">
-    <mat-card class="card">
-        <div class="login-wrapper">
-            <div class="box">
-                <mat-card-header>
-                    <mat-card-title>Register</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <mat-card-content>
-                        <mat-form-field class="full-width">
-                            <mat-label>Enter First Name</mat-label>
-                            <input matInput placeholder="Enter First Name" [formControl]="fname" required>
-                            <mat-error *ngIf="fname.invalid">Enter Valid FirstName</mat-error>
+<app-header></app-header>
+<div class="container mt-2">
+    <div class="card">
+        <h4 class="card-header">Register</h4>
+        <div class="card-body">
+            <form #contactForm="ngForm">
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your First Name</mat-label>
+                        <input matInput type="text" autocomplete="false" name="firstname" required
+                            [(ngModel)]="model.firstname">
+                        <mat-error *ngIf="(err.firstnameerr  && isSubmit)">Enter Valid
+                            FirstName</mat-error>
+                    </mat-form-field>
+                    <span class="text-danger" *ngIf="errors">{{ errorval.fname }}</span>
+                </div>
 
-                        </mat-form-field>
-                        <span class="text-danger" *ngIf="errors">{{ errorval.fname }}</span>
-                        <mat-form-field class="full-width">
-                            <mat-label>Enter Last Name</mat-label>
-                            <input matInput placeholder="Enter First Name" [formControl]="lname" required>
-                            <mat-error *ngIf="lname.invalid">Enter Valid LastName</mat-error>
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your Last Name</mat-label>
+                        <input matInput type="text" autocomplete="false" name="lastname" [(ngModel)]="model.lastname"
+                            required>
 
-                        </mat-form-field>
-                        <span class="text-danger" *ngIf="errors">{{ errorval.lname }}</span>
-                        <mat-form-field class="full-width">
-                            <mat-label>Enter your email</mat-label>
-                            <input matInput placeholder="email@email.com" [formControl]="email" required>
-                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                        </mat-form-field>
-                        <span class="text-danger" *ngIf="errors">{{ errorval.email }}</span>
+                        <mat-error *ngIf="(err.lastnameerr && isSubmit)">Enter Valid LastName</mat-error>
+                    </mat-form-field>
+                    <span class="text-danger" *ngIf="errors">{{ errorval.lname }}</span>
 
-                        <mat-form-field class="full-width">
-                            <mat-label>Enter your Password</mat-label>
-                            <input matInput type="password" placeholder="password" [formControl]="password" required>
-                            <mat-error *ngIf="password.invalid">{{getPassworderrr()}}</mat-error>
+                </div>
 
-                        </mat-form-field>
-                        <span class="text-danger" *ngIf="errors">{{ errorval.password }}</span>
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your Email</mat-label>
+                        <input matInput type="email" autocomplete="false" required name="email"
+                            [(ngModel)]="model.email" email>
+                        <mat-error *ngIf="(err.emailerr && isSubmit)">Invalid Email</mat-error>
 
-                        <mat-form-field class="full-width">
-                            <mat-label>Enter Confirm Password</mat-label>
-                            <input matInput type="password" placeholder="Confirm Password" [formControl]="cpassword"
-                                required>
-                            <mat-error *ngIf="cpassword.invalid">{{getcPassworderrr()}}</mat-error>
+                    </mat-form-field>
+                    <span class="text-danger" *ngIf="errors">{{ errorval.email }}</span>
 
-                        </mat-form-field>
-                        <span class="text-danger" *ngIf="errors">{{ errorval.cpassword }}</span>
+                </div>
 
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="password" required
+                            [(ngModel)]="model.password">
+                        <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide" autocomplete="false">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </span>
+                        <mat-error *ngIf="(err.passworderr  && isSubmit)">Enter Valid Password</mat-error>
 
-                        <div class="mt-2">
-                            <button mat-raised-button type="submit" (click)="register()" color="accent"
-                                [disabled]="disabledval">Register</button>
-                        </div>
+                    </mat-form-field>
+                    <span class="text-danger" *ngIf="errors">{{ errorval.password }}</span>
 
-                    </mat-card-content>
-                </mat-card-content>
+                </div>
 
-            </div>
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your Confirm Password</mat-label>
+                        <input matInput [type]="hides ? 'password' : 'text'" name="confirmpassword" required
+                            [(ngModel)]="model.confirmpassword">
+                        <span mat-icon-button matSuffix (click)="hides = !hides" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hides" autocomplete="false">
+                            <mat-icon>{{hides ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </span>
+                        <mat-error *ngIf="(err.confirmpassworderr && isSubmit)">Enter Valid Confirmpassword
+                        </mat-error>
+
+                    </mat-form-field>
+                    <span class="text-danger" *ngIf="errors">{{ errorval.cpassword }}</span>
+                </div>
+
+                <button type="submit" (click)="onSubmit()" mat-raised-button color="warn">Register</button>
+            </form>
         </div>
-    </mat-card>
-
+    </div>
 </div>

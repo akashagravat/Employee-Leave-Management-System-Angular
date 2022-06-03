@@ -1,0 +1,64 @@
+<!-- Side-Nav -->
+<div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+    <ul class="nav flex-column text-white w-100">
+        <div href="#" class=" h5 text-white my-2  navbar-header">
+            ELS
+            <br />
+            {{ username }}
+        </div>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/dashboard"><i class="bx bxs-dashboard"></i> Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="roleid === '2'">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/dashboard/addleave"><i class="fa fa-plus"></i> Add Leave Request</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/dashboard/viewleave"><i class="fa fa-eye"></i> View Leave Request</a>
+        </li>
+
+        <ng-container *ngIf="roleid === '2'">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/dashboard/viewapproovedleave"><i class="fa fa-check"></i> View Approoved Leave
+                    Request</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/dashboard/viewrejectedleave"><i class="fa fa-times-circle"></i> View Rejected Leave
+                    Request</a>
+            </li>
+        </ng-container>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/dashboard/myprofile"><i class="fa fa-user"></i> My Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="logout()"><i class="fa fa-lock"></i>Logout</a>
+        </li>
+    </ul>
+
+    <span href="#" class="nav-link h4 w-100 mb-5">
+        <a href=""><i class="bx bxl-instagram-alt text-white"></i></a>
+        <a href=""><i class="bx bxl-twitter px-2 text-white"></i></a>
+        <a href=""><i class="bx bxl-facebook text-white"></i></a>
+    </span>
+</div>
+<!-- Main Wrapper -->
+<div class="p-1 my-container active-cont ">
+    <!-- Top Nav -->
+    <nav class="navbar top-navbar navbar-light bg-light px-5 top-navbar">
+        <a class="btn border-0 " id="menu-btn" (click)="Toggle()"><i class="bx bx-menu"></i></a>
+        <li class="nav-item" style="display: inherit; margin-left:auto;">
+            <div class="nav-link links">{{ username }}</div>
+            <div class="nav-link links pointer" (click)="logout()">Logout</div>
+        </li>
+
+
+    </nav>
+    <!--End Top Nav -->
+    <!-- <router-outlet></router-outlet> -->
+    <ng-content></ng-content>
+</div>
